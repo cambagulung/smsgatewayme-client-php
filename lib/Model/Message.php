@@ -53,6 +53,7 @@ class Message implements ArrayAccess
     static $swaggerTypes = array(
         'id' => 'int',
         'deviceId' => 'int',
+        'phoneNumber' => 'string',
         'message' => 'string',
         'status' => 'string',
         'log' => '\SMSGatewayMe\Client\Model\MessageLog[]',
@@ -71,6 +72,7 @@ class Message implements ArrayAccess
     static $attributeMap = array(
         'id' => 'id',
         'deviceId' => 'device_id',
+        'phoneNumber' => 'phone_number',
         'message' => 'message',
         'status' => 'status',
         'log' => 'log',
@@ -89,6 +91,7 @@ class Message implements ArrayAccess
     static $setters = array(
         'id' => 'setId',
         'deviceId' => 'setDeviceId',
+        'phoneNumber' => 'setPhoneNumber',
         'message' => 'setMessage',
         'status' => 'setStatus',
         'log' => 'setLog',
@@ -107,6 +110,7 @@ class Message implements ArrayAccess
     static $getters = array(
         'id' => 'getId',
         'deviceId' => 'getDeviceId',
+        'phoneNumber' => 'getPhoneNumber',
         'message' => 'getMessage',
         'status' => 'getStatus',
         'log' => 'getLog',
@@ -130,6 +134,12 @@ class Message implements ArrayAccess
       * @var int
       */
     protected $deviceId;
+
+    /**
+      * $phoneNumber 
+      * @var string
+      */
+      protected $phoneNumber;
     
     /**
       * $message 
@@ -172,6 +182,7 @@ class Message implements ArrayAccess
         if ($data != null) {
             $this->id = $data["id"];
             $this->deviceId = $data["deviceId"];
+            $this->phoneNumber = $data["phoneNumber"];
             $this->message = $data["message"];
             $this->status = $data["status"];
             $this->log = $data["log"];
@@ -219,6 +230,27 @@ class Message implements ArrayAccess
     {
         
         $this->deviceId = $deviceId;
+        return $this;
+    }
+
+    /**
+     * Gets phone number
+     * @return string
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber;
+    }
+  
+    /**
+     * Sets phone number
+     * @param string $phoneNumber 
+     * @return $this
+     */
+    public function setPhoneNumber($phoneNumber)
+    {
+        
+        $this->phoneNumber = $phoneNumber;
         return $this;
     }
     
